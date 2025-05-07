@@ -17,7 +17,8 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Limitar memoria para evitar que Railway lo mate
-ENTRYPOINT ["java", "-Xmx300m", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Xmx300m", "-Dlogging.level.root=DEBUG", "-jar", "app.jar"]
+
 
 EXPOSE 8080
 
